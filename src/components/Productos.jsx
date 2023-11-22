@@ -5,7 +5,8 @@ const Productos = () => {
   const [busqueda, setBusqueda] = useState('')
   const [resultados, setResultados] = useState(null)
 
-  const handleSearch = () => {
+  const handleSearch = e => {
+    e.preventDefault()
     fetchProducts(busqueda, setResultados)
   }
 
@@ -28,7 +29,7 @@ const Productos = () => {
                   </div>
                   <div className="col-8"><h3>{resultado.title}</h3></div>
                 </div>
-                <p className="text-center">Precio: {resultado.price}</p>
+                <p className="text-center">Precio: ${resultado.price}</p>
               </div>
             </div>
           </div>
