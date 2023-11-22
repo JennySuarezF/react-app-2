@@ -1,9 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { fetchProducts } from "../api/productsAPI"
 
 const Productos = () => {
   const [busqueda, setBusqueda] = useState('')
   const [resultados, setResultados] = useState(null)
+
+  useEffect(() => {
+    fetchProducts('pelotas', setResultados);
+  }, []);
 
   const handleSearch = e => {
     e.preventDefault()
